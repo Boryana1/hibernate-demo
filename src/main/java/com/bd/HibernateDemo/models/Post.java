@@ -2,6 +2,7 @@ package com.bd.HibernateDemo.models;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 import java.time.LocalDateTime;
@@ -15,6 +16,7 @@ public class Post {
     private LocalDateTime postDate;
 
     @ManyToOne
+    @JoinColumn(name = "user_id")
     private User user;
     private String details;
 
