@@ -1,6 +1,8 @@
 package com.bd.HibernateDemo.controllers;
+import com.bd.HibernateDemo.models.Post;
 import com.bd.HibernateDemo.models.User;
 import com.bd.HibernateDemo.services.UserService;
+import jakarta.persistence.criteria.CriteriaBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,4 +26,21 @@ public class UserController {
     public Optional<User> getUserById(@PathVariable Integer id) {
         return userService.getUserById(id);
     }
+
+    @GetMapping("user/{id}/posts")
+    public List<Post> getPostsByUser(@PathVariable Integer id) {
+        Optional<User> user = userService.getUserById(id);
+
+        if(user.isPresent()) {
+            User newUser = user.get();
+            return newUser.getPosts();
+        }
+        return null;
+    }
+
+    @GetMapping("users/location/{id}/users")
+    public List<User> getUsersByLocation(@PathVariable Integer id) {
+        return userService.getUsersByLocation(id);
+    }
+
 }
