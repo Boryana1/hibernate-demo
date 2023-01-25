@@ -1,5 +1,9 @@
 package com.bd.HibernateDemo.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -7,6 +11,9 @@ import java.util.List;
 
 @Entity
 @Table(name = "client")
+//@JsonIdentityInfo(
+//        generator = ObjectIdGenerators.PropertyGenerator.class,
+//        property = "id")   (Adds user and the id after each user)
 public class User {
 
     @Id
@@ -61,6 +68,7 @@ public class User {
         return location;
     }
 
+    @JsonBackReference
     public void setLocation(Location location) {
         this.location = location;
     }
@@ -73,4 +81,8 @@ public class User {
         this.email = email;
     }
 
+    @JsonManagedReference
+    public List<Post> getPosts() {return posts; }
+
+    public void setPosts(List<Post> posts) {this.posts = posts; }
 }
