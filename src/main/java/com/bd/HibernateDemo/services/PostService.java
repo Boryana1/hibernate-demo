@@ -21,4 +21,7 @@ public class PostService {
         return postRepository.findById(id);
     }
 
+    public List<Post> getPostsByUser(Integer id) {
+        return postRepository.findByUserId(id);
+    }
 }
