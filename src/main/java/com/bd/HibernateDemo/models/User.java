@@ -6,7 +6,7 @@ import java.util.List;
 
 
 @Entity
-@Table(name = "CLIENT")
+@Table(name = "client")
 public class User {
 
     @Id
@@ -15,6 +15,7 @@ public class User {
     private String lastname;
 
     @ManyToOne
+    @JoinColumn(name = "location_id")
     private Location location;
     private String email;
 
