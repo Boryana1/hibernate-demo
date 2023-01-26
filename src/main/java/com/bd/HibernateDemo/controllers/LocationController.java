@@ -39,7 +39,7 @@ public class LocationController {
 
     @PostMapping("/locations/addNew")
     public void AddLocation(@RequestBody Location location) {
-        locationService.AddLocation(location);
+        locationService.addLocation(location);
     }
 
     @PutMapping("/locations/{id}/update")
