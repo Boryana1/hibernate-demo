@@ -3,9 +3,7 @@ import com.bd.HibernateDemo.models.Post;
 import com.bd.HibernateDemo.services.PostService;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -29,6 +27,11 @@ public class PostController {
     @GetMapping("/posts/user/{id}/posts")
     public List<Post> GetPostByUser(@PathVariable Integer id) {
         return postService.getPostsByUser(id);
+    }
+
+    @PostMapping("/posts/addNew")
+    public void AddPost(@RequestBody Post post) {
+        postService.addPost(post);
     }
 
 }
