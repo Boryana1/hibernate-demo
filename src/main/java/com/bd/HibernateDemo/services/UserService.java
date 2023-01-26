@@ -24,4 +24,9 @@ public class UserService {
     public List<User> getUsersByLocation(Integer id) {
         return userRepository.findByLocationId(id);
     }
+
+    public void addUser(User user) {
+        userRepository.save(user);
+    }
+
 }

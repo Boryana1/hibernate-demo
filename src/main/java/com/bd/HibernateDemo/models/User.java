@@ -22,8 +22,11 @@ public class User {
     private String lastname;
 
     @ManyToOne
-    @JoinColumn(name = "location_id")
+    @JoinColumn(name = "locationid", insertable = false, updatable = false)
     private Location location;
+
+    private Integer locationid;
+
     private String email;
 
     @OneToMany(mappedBy = "user")
@@ -71,6 +74,14 @@ public class User {
     @JsonBackReference
     public void setLocation(Location location) {
         this.location = location;
+    }
+
+    public Integer getLocationid() {
+        return locationid;
+    }
+
+    public void setLocationid(Integer locationid) {
+        this.locationid = locationid;
     }
 
     public String getEmail() {
