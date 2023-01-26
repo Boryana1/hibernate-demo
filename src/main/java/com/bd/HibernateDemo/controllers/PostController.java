@@ -34,4 +34,9 @@ public class PostController {
         postService.addPost(post);
     }
 
+    @PutMapping("/posts/{id}/update")
+    public void UpdatePost(@RequestBody Post post) {
+        postService.updatePost(post);
+    }
+
 }
