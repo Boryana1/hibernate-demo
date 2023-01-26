@@ -24,4 +24,9 @@ public class PostService {
     public List<Post> getPostsByUser(Integer id) {
         return postRepository.findByUserId(id);
     }
+
+    public void addPost(Post post) {
+        postRepository.save(post);
+    }
+
 }
