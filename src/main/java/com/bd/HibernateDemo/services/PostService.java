@@ -32,4 +32,8 @@ public class PostService {
     public void updatePost(Post post) {
         postRepository.save(post);
     }
+
+    public void deletePost(Integer id) {
+        postRepository.deleteById(id);
+    }
 }
