@@ -21,4 +21,7 @@ public class UserService {
         return userRepository.findById(id);
     }
 
+    public List<User> getUsersByLocation(Integer id) {
+        return userRepository.findByLocationId(id);
+    }
 }
