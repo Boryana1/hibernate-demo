@@ -21,6 +21,7 @@ public class User {
     private String firstname;
     private String lastname;
 
+
     @ManyToOne
     @JoinColumn(name = "locationid", insertable = false, updatable = false)
     private Location location;
@@ -29,7 +30,7 @@ public class User {
 
     private String email;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Post> posts;
 
     public User() {
