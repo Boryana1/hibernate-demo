@@ -42,4 +42,9 @@ public class LocationController {
         locationService.AddLocation(location);
     }
 
+    @PutMapping("/locations/{id}/update")
+    public void UpdateLocation(@RequestBody Location location) {
+        locationService.updateLocation(location);
+    }
+
 }
