@@ -25,7 +25,8 @@ public class LocationService {
         locationRepository.save(location);
     }
 
-    public void updateLocation(Location location) {
+    public void updateLocation(Integer id, Location location) {
+        location.setId(id);
         locationRepository.save(location);
     }
 
