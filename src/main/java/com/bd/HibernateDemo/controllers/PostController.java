@@ -35,8 +35,8 @@ public class PostController {
     }
 
     @PutMapping("/posts/{id}/update")
-    public void UpdatePost(@RequestBody Post post) {
-        postService.updatePost(post);
+    public void UpdatePost(@PathVariable Integer id, @RequestBody Post post) {
+        postService.updatePost(id, post);
     }
 
     @DeleteMapping("/posts/{id}/delete")
