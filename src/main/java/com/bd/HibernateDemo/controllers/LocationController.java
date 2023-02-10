@@ -43,8 +43,8 @@ public class LocationController {
     }
 
     @PutMapping("/locations/{id}/update")
-    public void UpdateLocation(@RequestBody Location location) {
-        locationService.updateLocation(location);
+    public void UpdateLocation(@PathVariable Integer id, @RequestBody Location location) {
+        locationService.updateLocation(id, location);
     }
 
     @DeleteMapping("/locations/{id}/delete")
