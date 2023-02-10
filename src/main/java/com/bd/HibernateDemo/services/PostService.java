@@ -29,7 +29,8 @@ public class PostService {
         postRepository.save(post);
     }
 
-    public void updatePost(Post post) {
+    public void updatePost(Integer id, Post post) {
+        post.setId(id);
         postRepository.save(post);
     }
 
